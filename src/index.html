@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>KwikDAO | Parolling On Blockchain</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+
+   <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/vendors/css/vendors.min.css">
+    <link href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css" rel="stylesheet" />
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/app-assets/css/plugins/forms/validation/form-validation.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="https://d1dnly04jf5bfp.cloudfront.net/assets/css/style.css">
+    <!-- END: Custom CSS-->
+    
+   
+
+    <style>
+        .m-auto {
+            margin: auto !important;
+        }
+
+
+        .form-group {
+            display: grid !important;
+        }
+
+        .main-menu {
+            width: 220px;
+        }
+
+
+        body {
+            font-size: 0.8em;
+        }
+
+        h1 {
+            font-size: 1.8em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+        }
+
+        h4 {
+            font-size: 1.2em;
+        }
+
+        .navigation {
+            font-size: 1em;
+        }
+
+    </style>
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout  navbar-floating footer-static"   data-layout="dark-layout">
+
+    
+  
+    <!-- BEGIN: Header-->
+
+    <nav class="header-navbar navbar-expand-lg navbar floating-nav  navbar-shadow" style="width:95%">
+        <div class="navbar-wrapper">
+            <div class="navbar-container content">
+                <div class="navbar-collapse" id="navbar-mobile">
+                    <div class="mr-auto float-left bookmark-wrapper d-flex align-items-center">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item mobile-menu d-xl-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ficon feather icon-menu"></i></a></li>
+                            
+                        </ul>
+
+                        <button class="btn btn-danger mr-1 waves-effect waves-light" type="button" id="btnAddEmployee">
+                            <i class="fa fa-plus-circle "></i> Add Employee
+                        </button>
+
+                        <button class="btn btn-danger mr-1 waves-effect waves-light" type="button" id="btnPayEmployee">
+                            <i class="fa fa-usd" aria-hidden="true"></i> Pay Employee
+                        </button>
+                        <button class="btn btn-danger mr-1 waves-effect waves-light" type="button" id="btnSendInvoice">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i></i> Send Invoice
+                        </button>
+
+                    </div>
+
+                    <ul class="nav navbar-nav float-right">
+                       
+                        <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                            <div class="user-nav d-sm-flex d-none">
+                                <h4 class="user-name text-bold-800" id="RegdaoName"></h4>
+                                <span class="user-name text-bold-600" id="account"></span>
+                                <span class="user-status" id="ETHbalance"></span>
+                            </div>
+                            
+                        </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                
+                                <a class="dropdown-item" href="#"><i class="feather icon-power"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- END: Header-->
+
+    
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content m-auto" id="content">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            <!-- Main Content start -->
+            <div id="loader"><i class="fa fa-spinner" aria-hidden="true"></i> Loading...</div>
+            
+            <div class="row match-height">
+               
+               
+        
+                     <div class="col-lg-4 col-sm-6 col-6">
+                            <div class="card bg-gradient-primary text-white">
+                                <div class="card-body text-center">
+                                     
+                                     
+                                    <div class="avatar avatar-xl bg-primary shadow mt-0">
+                                                    <div class="avatar-content">
+                                                        <a href="#"><i class="fa fa-2x fa-users white" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </div>
+                                               
+                                 
+                                    <h1 class="text-white text-bold-700 mt-2" style="font-size:2em">
+                                        <span id="LblTotalEmployees">0</span></h1>
+                                    <h4 class="text-white">Total Employees</h4>
+                                   
+                                </div>
+        
+                            </div>
+                        </div>
+        
+        
+                        <div class="col-lg-4 col-sm-6 col-6">
+                            <div class="card bg-gradient-success text-white">
+                                <div class="card-body text-center">
+                                     
+                                     
+                                    <div class="avatar avatar-xl bg-success shadow mt-0">
+                                                    <div class="avatar-content">
+                                                        <a href="#"><i class="fa fa-2x fa-usd white" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </div>
+                                               
+                                 
+                                    <h1 class="text-white text-bold-700 mt-2" style="font-size:2em">
+                                        <span id="LblTotalEmployees">$0</span></h1>
+                                    <h4 class="text-white">Total Funds</h4>
+                                   
+                                </div>
+        
+                            </div>
+                        </div>
+                     
+                        <div class="col-lg-4 col-s,-6 col-6">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-end">
+                                    <h4 class="card-title">ERC-20 Token Wise Transfer</h4>
+                                    <p class="font-medium-5 mb-0"><i class="feather icon-settings text-muted cursor-pointer"></i></p>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body pb-0" style="position: relative;">
+                                        <div class="d-flex justify-content-center">
+                                            <div class="mr-2">
+                                                <p class="mb-50 text-bold-600">MATIC</p>
+                                                <h2 class="text-bold-400">
+                                                    <img width="30px" src="data:image/png;base64,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"/>
+                                                    <span class="text-success">86,589</span>
+                                                </h2>
+                                            </div>
+                                            <div class="mr-2">
+                                                <p class="mb-50 text-bold-600">USDC</p>
+                                                <h2 class="text-bold-400">
+                                                    <img width="30px" src="data:image/png;base64,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"/>
+                                                   
+                                                    <span>73,683</span>
+                                                </h2>
+                                            </div>
+                                            <div class="mr-2">
+                                                <p class="mb-50 text-bold-600">DAI</p>
+                                                <h2 class="text-bold-400">
+                                                   <img width="30px" src="data:image/png;base64,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"/>
+                                                   
+                                                    <span>73,683</span>
+                                                </h2>
+                                            </div>
+
+                                        </div>
+                                         </div>
+                            </div>
+                        </div>
+        
+        
+                        </div>
+
+
+               
+
+            <!-- Main Content end -->
+
+
+        </div>
+
+        <div class="row" id="table-striped">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Employee List</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Wallet</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Salary(in USD)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="EmployeeList">
+                                    <tr class="Emptemplate" style="display: none;">
+                                        <th scope="row" class="EmpSNo">1</th>
+                                        <td class="ETempWalletAdr">Loading</td>
+                                        <td class="ETempName">Loading</td>
+                                        <td class="ETempMail">Loading</td>
+                                        <td class="EtempType">Loadiing</td>
+                                        <td class="ETempSalary">Loading</td>
+                                    </tr>
+                                   
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+   
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+    <script src="vendor/web3/dist/web3.min.js"></script>
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+    <script src="app.js"></script>
+
+   <!-- BEGIN: Vendor JS-->
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/js/core/app-menu.js"></script>
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/js/core/app.js"></script>
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/js/scripts/components.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/js/scripts/forms/validation/form-validation.js"></script>
+    <!-- END: Page JS-->
+
+
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/vendors/js/forms/select/select2.min.js"></script>
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/vendors/js/pickers/pickadate/picker.js"></script>
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"></script>
+    <script src="https://d1dnly04jf5bfp.cloudfront.net/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    
+     
+
+     <div class="modal fade" id="DaoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-title text-center">
+                <h4>Register DAO</h4>
+              </div>
+              <div class="d-flex flex-column text-center">
+                <form>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="daoName" placeholder="Your DAO name...">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="daoDescription" placeholder="Description...">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="daoWebsite" placeholder="Website...">
+                  </div>
+                  <button type="button" id="btnRegDao" class="btn btn-primary btn-block btn-round">Register</button>
+                </form>
+                
+             
+            </div>
+          </div>
+            
+        </div>
+      </div>
+     </div>
+
+     <div class="modal fade" id="EmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-title text-center">
+                <h4>Register Employee</h4>
+              </div>
+              <div class="d-flex flex-column text-center">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="empWAddress" placeholder="Employee wallet Address...">
+                      </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="empName" placeholder="Employee name...">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="empEmail" placeholder="Employee E-mail address...">
+                  </div>
+                  <div class="form-group">
+                    <select class="form-control" id="EmpLoyeeType">
+                      
+                        <option value="Employee">Employee</option>
+                        <option value="Freelancer">Freelancer</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" id="empYSalary" placeholder="Salary in USD...">
+                  </div>
+                  <button type="button" id="btnRegEmp" class="btn btn-primary btn-block btn-round">Register</button>
+                </form>
+                
+             
+            </div>
+          </div>
+            
+        </div>
+      </div>
+     </div>
+
+
+
+
+     <div class="modal fade" id="PayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-title text-center">
+                <h4>Pay Employee</h4>
+              </div>
+              <div class="d-flex flex-column text-center">
+                <form>
+                  
+                  <div class="form-group">
+                    <select class="form-control" id="EmployeeSelectList">
+                      
+                        <option class="empSelectTemplate" data-eid="0" data-address="0x0" >Select</option>
+                     
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" id="amount" placeholder="Enter amount in ETH...">
+                  </div>
+                  <button type="button" id="btnTransfer" class="btn btn-primary btn-block btn-round">Transfer</button>
+                </form>
+                
+             
+            </div>
+          </div>
+            
+        </div>
+      </div>
+     </div>
+
+
+</body>
+<!-- END: Body-->
+
+
+
+</html>
