@@ -1,4 +1,4 @@
-# KryptxDAO Initial Commit
+# KryptxDAO
 
 ![image](https://user-images.githubusercontent.com/104776555/231207803-28c07760-fb66-40cb-ab89-b716f43cb630.png)
 
