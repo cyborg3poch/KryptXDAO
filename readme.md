@@ -9,3 +9,4 @@ Goals of this project
 2. Integrate Gnosis Multisig
 3. Manage Treasuries
 4. Manage Payroll
+5. Support for popular DApps integration 
